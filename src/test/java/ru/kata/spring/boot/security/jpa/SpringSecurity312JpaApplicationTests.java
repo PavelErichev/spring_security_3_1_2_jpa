@@ -9,5 +9,5 @@ class SpringSecurity312JpaApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
+//@Query("select c from User c join fetch c.roles where c.userName= :username")
 }
