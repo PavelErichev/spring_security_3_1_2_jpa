@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot.security.jpa.entity.Role;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role,Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
-    @Query(value = "select u from Role u join fetch u.users where u.name= :name")
+    @Query(value = "select r from Role r where r.name= :name")
     Role getByName(@Param("name") String name);
 }

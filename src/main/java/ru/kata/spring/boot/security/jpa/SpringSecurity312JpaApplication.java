@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringSecurity312JpaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurity312JpaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringSecurity312JpaApplication.class, args);
+    }
 
 }

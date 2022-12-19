@@ -49,12 +49,6 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public Role findRoleById(long id) {
-        return roleRepository.findById(id).get();
-    }
-
-    @Transactional
-    @Override
     public void saveUser(User user, String[] role) {
         user.setPassword(PasswordEncoder().encode(user.getPassword()));
         Set<Role> rolesSet = new HashSet<>();
@@ -75,11 +69,17 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    @Transactional
+    /*@Transactional
     @Override
-    public void updateUser(User user) {
+    public void updateUser(User user, String[] role) {
+        user.setPassword(PasswordEncoder().encode(user.getPassword()));
+        Set<Role> rolesSet = new HashSet<>();
+        for (String roles : role) {
+            rolesSet.add(roleRepository.getByName(roles));
+        }
+        user.setRoles(rolesSet);
         userRepository.save(user);
-    }
+    }*/
 
     @Transactional
     @Override

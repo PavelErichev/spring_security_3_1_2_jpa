@@ -15,9 +15,14 @@
     <label for="password">Password</label>
     <input type="password" th:field="*{password}" id="password" placeholder="Password">
     <br/>
-    <input type="checkbox" name="roles" value="ROLE_USER"/> USER
-    <input type="checkbox" name="roles" value="ROLE_ADMIN"/> ADMIN
+    <input type="checkbox" name="roless" value="ROLE_USER"/> USER
+    <input type="checkbox" name="roless" value="ROLE_ADMIN"/> ADMIN
     <input type="submit" value="Create User">
 </form>
+<div>
+    <form  th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</div>
 </body>
 </html>

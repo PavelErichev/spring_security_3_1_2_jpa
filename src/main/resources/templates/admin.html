@@ -38,5 +38,10 @@
 <td><form action="#" th:action="@{user-create}" th:method="get">
     <input type="submit" value="Add User"/>
 </form></td>
+<div>
+    <form  th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</div>
 </body>
 </html>

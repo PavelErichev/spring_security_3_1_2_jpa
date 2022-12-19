@@ -21,12 +21,15 @@
             <td th:text="${user.getUserName()}">userName</td>
             <td th:text="${user.getFirstName()}">firstName</td>
             <td th:text="${user.getLastName()}">lastName</td>
-            <td th:text="${user.getRoles()}">roles</td>
+            <td th:each="role : ${user.getRoleName()}">
+                <p th:text="${role}"></p></td>
         </tr>
     </table>
 </div>
-
-
-
+<div>
+    <form  th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</div>
 </body>
 </html>
