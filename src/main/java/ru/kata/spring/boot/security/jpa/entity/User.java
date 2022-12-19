@@ -1,7 +1,6 @@
 package ru.kata.spring.boot.security.jpa.entity;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -36,10 +35,6 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
-    public void addRole(Role role) {
-        this.roles.add(role);
-    }
 
     public User() {
     }
@@ -92,7 +87,6 @@ public class User implements UserDetails {
         return roles.stream()
                 .map(r -> r.getName().replace("ROLE_", ""))
                 .collect(Collectors.toSet());
-        //return roles;
     }
 
     public void setRoles(Set<Role> roles) {
@@ -101,7 +95,6 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //return roles.stream().map(r -> new SimpleGrantedAuthority(r.getName())).collect(Collectors.toList());
         return roles;
     }
 

@@ -53,12 +53,6 @@ public class AdminController {
         return "user-update";
     }
 
-    /*@PutMapping("/user-update")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
-        return "redirect:/admin";
-    }*/
-
     @PutMapping("/user-update")
     public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "roless") String[] role) {
         userService.saveUser(user, role);
