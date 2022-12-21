@@ -10,7 +10,7 @@ import ru.kata.spring.boot.security.jpa.entity.User;
 import ru.kata.spring.boot.security.jpa.service.UserService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("user")
+    @GetMapping
     public String userInfo(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
         return "user";

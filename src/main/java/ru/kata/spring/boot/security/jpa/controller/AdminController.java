@@ -10,7 +10,7 @@ import ru.kata.spring.boot.security.jpa.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/admin")
 public class AdminController {
 
     private final UserService userService;
@@ -20,21 +20,21 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @GetMapping("admin")
+    @GetMapping
     public String showAllUser(Model model) {
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("allUs", allUsers);
         return "admin";
     }
 
-    @GetMapping("user-create")
+    @GetMapping("/user-create")
     public String addNewUser(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "user-create";
     }
 
-    @PostMapping("user-create")
+    @PostMapping("/user-create")
     public String saveUser(@ModelAttribute("user") User user, @RequestParam(value = "roless") String[] role) {
         userService.saveUser(user, role);
         return "redirect:/admin";
