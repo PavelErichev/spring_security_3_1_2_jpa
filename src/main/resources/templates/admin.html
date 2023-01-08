@@ -51,7 +51,9 @@
                             <th>ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>User name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Role</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -61,7 +63,10 @@
                             <td th:text="${user.id}"></td>
                             <td th:text="${user.firstName}"></td>
                             <td th:text="${user.lastName}"></td>
-                            <td th:text="${user.userName}"></td>
+                            <td th:text="${user.age}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td th:each="role : ${user.getRoleName()}">
+                                <p th:text="${role}"></p></td>
                             <td>
                                 <form action="#" th:action="@{/admin/user-update/{id}(id=${user.id})}" th:method="get">
                                     <input type="submit" class="btn btn-info" value="Edit"/>
@@ -87,7 +92,7 @@
     </div>
 </div>
 
-<!--<td>
+<td>
     <form action="#" th:action="@{/admin/user-create}" th:method="get">
         <input type="submit" value="Add User"/>
     </form>
@@ -97,7 +102,7 @@
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout">
     </form>
-</div>-->
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -17,8 +17,8 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "userName")
-    private String userName;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
     private String password;
@@ -28,6 +28,9 @@ public class User implements UserDetails {
 
     @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "age")
+    private int age;
 
     @ManyToMany
     @JoinTable(
@@ -39,12 +42,13 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String userName, String password, String firstName, String lastName, Set<Role> roles) {
-        this.userName = userName;
+    public User(String email, String password, String firstName, String lastName, Set<Role> roles, int age) {
+        this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.roles = roles;
+        this.age = age;
     }
 
     public Long getId() {
@@ -55,12 +59,12 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPassword(String password) {
@@ -81,6 +85,14 @@ public class User implements UserDetails {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public Set<String> getRoleName() {
@@ -105,7 +117,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return email;
     }
 
     @Override
