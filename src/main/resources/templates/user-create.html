@@ -1,11 +1,84 @@
 <!DOCTYPE html>
-<html lang="en", xmlns:th="http://www.thymeleaf.org">
+<html lang="en" , xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
     <title>Add User</title>
 </head>
 <body>
-<form action="#" th:action="@{/admin/user-create}" th:object="${user}" method="post">
+
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 py-2 bg-dark text-white">
+                <a class="font-weight-bold pl-2" th:text="${user.getEmail()}"></a>
+                <a>with roles: ADMIN USER</a>
+                <!--<a th:each="role : ${user.getRoleName()}" th:text="${role}"></a>-->
+                <a href="/logout" class="float-right text-white-50">Logout</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="p-0 col-2">
+            <div class="nav flex-column nav-pills pt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                   aria-controls="v-pills-home" aria-selected="true">Admin</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false">User</a>
+            </div>
+        </div>
+        <div class="p-0 col-10">
+            <div class="container-fluid bg-light min-vh-100 px-4">
+                <h1 class="pt-3 pb-2">Admin panel</h1>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Users table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active">New User</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="card">
+                            <h5 class="card-header">Add new user</h5>
+                            <div class="card-body">
+                                <form th:action="@{/admin/user-create}" th:object="${user}" method="post">
+                                    <div class="form-group">
+                                        <label for="firstName">First name</label>
+                                        <input type="text" class="form-control" th:field="*{firstName}" id="firstName" placeholder="First name">
+                                        <label for="lastName">Last name</label>
+                                        <input type="text" class="form-control" th:field="*{lastName}" id="lastName" placeholder="Last name">
+                                        <label for="age">Age</label>
+                                        <input type="text" class="form-control" th:field="*{age}" id="age" placeholder="Age">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" th:field="*{email}" id="email" placeholder="Email">
+                                        <label for="password">Password</label>
+                                        <input type="text" class="form-control" th:field="*{password}" id="password" placeholder="Password">
+                                        <label for="role">Role</label>
+                                        <select class="custom-select" name="roless" id="role" size="2">
+                                            <option value="ROLE_ADMIN">ADMIN</option>
+                                            <option value="ROLE_USER">USER</option>
+                                        </select>
+                                        <br>
+                                        <input type="submit" class="btn btn-success btn-lg" value="Add new user">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<form action="#" th:action="@{/admin/user-create}" th:object="${user}" method="post">
     <label for="firstName">First name</label>
     <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
     <label for="lastName">Last name</label>
@@ -21,10 +94,21 @@
     <input type="checkbox" name="roless" value="ROLE_ADMIN"/> ADMIN
     <input type="submit" value="Create User">
 </form>
+
 <div>
     <form  th:action="@{/logout}" method="post">
         <input type="submit" value="Logout">
     </form>
-</div>
+</div>-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
