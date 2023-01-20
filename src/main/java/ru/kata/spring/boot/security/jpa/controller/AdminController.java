@@ -46,7 +46,7 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/user-update/{id}")
+    /*@GetMapping("/user-update/{id}")
     public String updateUserForm(@PathVariable("id") long id, Model model) {
         User user = userService.getUser(id);
         model.addAttribute("user", user);
@@ -54,6 +54,19 @@ public class AdminController {
     }
 
     @PutMapping("/user-update")
+    public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "roless") String[] role) {
+        userService.saveUser(user, role);
+        return "redirect:/admin";
+    }*/
+
+    /*@GetMapping("/user-update/{id}")
+    public String updateUserForm(@PathVariable("id") long id, Model model) {
+        User user = userService.getUser(id);
+        model.addAttribute("user", user);
+        return "user-update";
+    }*/
+
+    @PutMapping(value = "/user-update/{id}")
     public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "roless") String[] role) {
         userService.saveUser(user, role);
         return "redirect:/admin";
