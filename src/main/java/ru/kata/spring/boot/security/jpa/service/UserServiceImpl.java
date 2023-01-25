@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    @Transactional
+   /* @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUserName(username);
@@ -66,5 +66,5 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("User not found");
         }
         return user;
-    }
+    }*/
 }

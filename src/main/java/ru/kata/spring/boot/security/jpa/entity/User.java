@@ -32,7 +32,7 @@ public class User implements UserDetails {
     @Column(name = "age")
     private int age;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -99,6 +99,10 @@ public class User implements UserDetails {
         return roles.stream()
                 .map(r -> r.getName().replace("ROLE_", ""))
                 .collect(Collectors.toSet());
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
     public void setRoles(Set<Role> roles) {

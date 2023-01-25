@@ -13,8 +13,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 py-2 bg-dark text-white">
-                <a class="font-weight-bold pl-2" th:text="${user.getEmail()}"></a>
-                <a>with roles: ADMIN USER</a>
+                <a class="font-weight-bold pl-2" th:text="${user.email}"></a>
+                <!--<a th:text="'with roles: ' + ${#strings.arrayJoin(user.roleName, ' ')}"></a>-->
+                <!--<a>with roles: ADMIN USER</a>-->
                 <!--<a th:each="role : ${user.getRoleName()}" th:text="${role}"></a>-->
                 <a href="/logout" class="float-right text-white-50">Logout</a>
             </div>

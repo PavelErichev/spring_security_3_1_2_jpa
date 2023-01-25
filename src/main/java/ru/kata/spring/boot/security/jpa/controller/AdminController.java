@@ -1,6 +1,7 @@
 package ru.kata.spring.boot.security.jpa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,10 @@ public class AdminController {
     }
 
     @GetMapping
-    public String showAllUser(Model model) {
+    public String showAllUser(@AuthenticationPrincipal User user, Model model) {
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("allUs", allUsers);
+        model.addAttribute("user",user);
         return "admin";
     }
 

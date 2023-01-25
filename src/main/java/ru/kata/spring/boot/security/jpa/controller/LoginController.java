@@ -1,4 +1,3 @@
-/*
 package ru.kata.spring.boot.security.jpa.controller;
 
 import org.springframework.stereotype.Controller;
@@ -11,4 +10,4 @@ public class LoginController {
     public String login() {
         return "/login";
     }
-}*/
+}

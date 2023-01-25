@@ -9,18 +9,45 @@
 </head>
 <body>
 
-<header>
+<!--<header>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 py-2 bg-dark text-white">
                 <a class="font-weight-bold pl-2" th:each="user : ${allUs}" th:text="${user.email}"></a>
                 <a>with roles: ADMIN USER</a>
-                <!--<a th:each="role : ${user.getRoleName()}" th:text="${role}"></a>-->
+                &lt;!&ndash;<a th:each="role : ${user.getRoleName()}" th:text="${role}"></a>&ndash;&gt;
                 <a href="/logout" class="float-right text-white-50">Logout</a>
             </div>
         </div>
     </div>
-</header>
+</header>-->
+
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
+    <span>
+    <span class="navbar-brand font-weight-bold" th:text="${user.email}"></span>
+    <span class="navbar-brand"
+          th:text="'with roles: ' + ${#strings.arrayJoin(user.roleName, ' ')}"></span>
+    </span>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+<!--<nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
+    <span>
+    <span class="navbar-brand font-weight-bold" th:text="${user.email}"></span>
+    <span class="navbar-brand"
+          th:text="'with roles:' + ${user.roles.toString().replace('[ROLE_', '').replace(']', '')}"></span>
+    </span>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
+    </ul>
+</nav>-->
+
 
 <div class="container-fluid h-100">
     <div class="row h-100">

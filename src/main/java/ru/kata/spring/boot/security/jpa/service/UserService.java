@@ -5,7 +5,7 @@ import ru.kata.spring.boot.security.jpa.entity.User;
 
 import java.util.List;
 
-public interface UserService extends UserDetailsService {
+public interface UserService  {  //extends UserDetailsService
     List<User> getAllUsers();
 
     User getUser(long id);
