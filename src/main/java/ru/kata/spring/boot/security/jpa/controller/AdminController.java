@@ -30,8 +30,10 @@ public class AdminController {
     }
 
     @GetMapping("/user-create")
-    public String addNewUser(Model model) {
-        User user = new User();
+    public String addNewUser(@AuthenticationPrincipal User user, Model model) {
+        User newUser = new User();
+        //User user = new User();
+        model.addAttribute("newUser", newUser);
         model.addAttribute("user", user);
         return "user-create";
     }

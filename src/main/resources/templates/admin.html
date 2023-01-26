@@ -5,7 +5,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
-    <title>All Users</title>
+    <title>Admin panel</title>
 </head>
 <body>
 
@@ -22,6 +22,7 @@
     </div>
 </header>-->
 
+<header>
     <nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
     <span>
     <span class="navbar-brand font-weight-bold" th:text="${user.email}"></span>
@@ -34,6 +35,7 @@
             </li>
         </ul>
     </nav>
+</header>
 
 <!--<nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
     <span>
@@ -47,7 +49,6 @@
         </li>
     </ul>
 </nav>-->
-
 
 <div class="container-fluid h-100">
     <div class="row h-100">
@@ -127,7 +128,7 @@
                                                             <input th:name="email" th:type="text" th:value="${user.email}" class="form-control" id="email1" placeholder="Email"
                                                                    style="width:25vh; margin-left:auto; margin-right:auto">
                                                             <label for="password1" class="mb-0 mt-3"><b>Password</b></label>
-                                                            <input th:name="password" th:type="password" th:value="${user.password}" class="form-control" id="password1" placeholder="Password"
+                                                            <input th:name="password" th:type="password" value="" class="form-control" id="password1" placeholder="Password"
                                                                    style="width:25vh; margin-left:auto; margin-right:auto">
                                                         </div>
                                                         <div class="form-group text-center" style="width:25vh; margin-left:auto; margin-right:auto">
