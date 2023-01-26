@@ -9,20 +9,6 @@
 </head>
 <body>
 
-<!--<header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 py-2 bg-dark text-white">
-                <a class="font-weight-bold pl-2" th:text="${user.email}"></a>
-                &lt;!&ndash;<a th:text="'with roles: ' + ${#strings.arrayJoin(user.roleName, ' ')}"></a>&ndash;&gt;
-                &lt;!&ndash;<a>with roles: ADMIN USER</a>&ndash;&gt;
-                &lt;!&ndash;<a th:each="role : ${user.getRoleName()}" th:text="${role}"></a>&ndash;&gt;
-                <a href="/logout" class="float-right text-white-50">Logout</a>
-            </div>
-        </div>
-    </div>
-</header>-->
-
 <header>
     <nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
     <span>
@@ -64,7 +50,8 @@
                         <div class="card">
                             <h5 class="card-header">Add new user</h5>
                             <div class="card-body">
-                                <form class="offset-md-4 col-sm-4" th:action="@{/admin/user-create}" th:object="${newUser}"
+                                <form class="offset-md-4 col-sm-4" th:action="@{/admin/user-create}"
+                                      th:object="${newUser}"
                                       method="post">
                                     <div class="form-group text-center">
                                         <label for="firstName" class="mb-0"><b>First name</b></label>
@@ -102,29 +89,6 @@
         </div>
     </div>
 </div>
-
-<!--<form action="#" th:action="@{/admin/user-create}" th:object="${user}" method="post">
-    <label for="firstName">First name</label>
-    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
-    <label for="lastName">Last name</label>
-    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
-    <label for="age">Age</label>
-    <input type="text" th:field="*{age}" id="age" placeholder="Age">
-    <label for="email">Email</label>
-    <input type="text" th:field="*{email}" id="email" placeholder="Email">
-    <label for="password">Password</label>
-    <input type="password" th:field="*{password}" id="password" placeholder="Password">
-    <br/>
-    <input type="checkbox" name="roless" value="ROLE_USER"/> USER
-    <input type="checkbox" name="roless" value="ROLE_ADMIN"/> ADMIN
-    <input type="submit" value="Create User">
-</form>
-
-<div>
-    <form  th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout">
-    </form>
-</div>-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

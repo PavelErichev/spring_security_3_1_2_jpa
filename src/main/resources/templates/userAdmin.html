@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" , xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" , xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -7,19 +7,6 @@
     <title>User page</title>
 </head>
 <body>
-
-<!--<header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 py-2 bg-dark text-white">
-                &lt;!&ndash;<a class="font-weight-bold pl-2" th:text="${user.email}"></a>
-                <a>with roles:</a>
-                <a th:each="role : ${user.getRoleName()}" th:text="${role}"></a>&ndash;&gt;
-                <a href="/logout" class="float-right text-white-50">Logout</a>
-            </div>
-        </div>
-    </div>
-</header>-->
 
 <header>
     <nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
@@ -74,8 +61,6 @@
                                         <td th:text="${user.age}">age</td>
                                         <td th:text="${user.getEmail()}">email</td>
                                         <td th:text="${#strings.arrayJoin(user.roleName, ' ')}">ADMIN USER</td>
-                                        <!--<td th:each="role : ${user.getRoleName()}">
-                                            <p th:text="${role}"></p></td>-->
                                     </tr>
                                     </tbody>
                                 </table>

@@ -25,14 +25,13 @@ public class AdminController {
     public String showAllUser(@AuthenticationPrincipal User user, Model model) {
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("allUs", allUsers);
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         return "admin";
     }
 
     @GetMapping("/user-create")
     public String addNewUser(@AuthenticationPrincipal User user, Model model) {
         User newUser = new User();
-        //User user = new User();
         model.addAttribute("newUser", newUser);
         model.addAttribute("user", user);
         return "user-create";
@@ -49,26 +48,6 @@ public class AdminController {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
-
-    /*@GetMapping("/user-update/{id}")
-    public String updateUserForm(@PathVariable("id") long id, Model model) {
-        User user = userService.getUser(id);
-        model.addAttribute("user", user);
-        return "user-update";
-    }
-
-    @PutMapping("/user-update")
-    public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "roless") String[] role) {
-        userService.saveUser(user, role);
-        return "redirect:/admin";
-    }*/
-
-    /*@GetMapping("/user-update/{id}")
-    public String updateUserForm(@PathVariable("id") long id, Model model) {
-        User user = userService.getUser(id);
-        model.addAttribute("user", user);
-        return "user-update";
-    }*/
 
     @PutMapping(value = "/user-update/{id}")
     public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "roless") String[] role) {

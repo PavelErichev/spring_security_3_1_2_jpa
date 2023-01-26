@@ -9,12 +9,12 @@ import ru.kata.spring.boot.security.jpa.entity.User;
 import ru.kata.spring.boot.security.jpa.repository.UserRepository;
 
 @Service
-public class Custom implements UserDetailsService {
+public class EmailBasedUserDetailService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
     @Autowired
-    public Custom(UserRepository userRepository) {
+    public EmailBasedUserDetailService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
